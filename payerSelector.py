@@ -7,7 +7,6 @@ names = input("Enter the names of people who ate: Seperate names with a comma(,)
 
 list_names = names.split(",")
 
-random_number = random.randint(0, len(list_names)-1)
+random_person = random.choice(list_names)
 
-random_person = list_names[random_number]
 print(f"{random_person}, is paying Today!")
