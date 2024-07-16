@@ -1,0 +1,55 @@
+from random import randint
+from art import logo
+
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
+
+#Let us start of by writing the compare function
+def compare(guess, answer, turns):
+    """Compares guess against answer, and returns the number of lives remaining"""
+    if guess > answer:
+        print("Too high!")
+        return turns -1
+    elif guess < answer:
+        print("Too low!")
+        return turns - 1
+    else:
+        print(f"You go it, the answer is {answer}")
+
+def set_difficulty():
+    level = input("Do you want to play the 'easy' or 'hard' level: ")
+    if level == "easy":
+        return EASY_LEVEL_TURNS 
+    else:
+        return HARD_LEVEL_TURNS      
+
+def game():
+    #NOw let us do the start up of the game
+    print(logo)
+    print("Welcome to the number guessing game...")
+    print("Guess a number between '1' and '100'..")
+
+    #Generate a random now
+    answer = randint(1, 100)
+
+    #call the function to set difficulty and use turns to comtrol flow of the game
+    turns = set_difficulty()
+
+
+    #Make the game run until the user get's it right or they run out of lives
+    guess = 0
+    while guess != answer:
+        print(f"You have {turns} lives remaining")
+        #Get user input
+        guess = int(input("Make a guess: "))
+        #check guess against answer
+        turns = compare(guess, answer, turns)
+
+        if turns == 0:
+            print(f"You have {turns} remaining, you lose!!!")
+            return 
+        elif guess != answer:
+            print("Guess again..")
+        
+    
+game()
