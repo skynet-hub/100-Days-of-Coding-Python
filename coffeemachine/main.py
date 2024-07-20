@@ -32,7 +32,8 @@ resources = {
     "money": 0
 }
 
-def check_resources(resources):
+def check_resources():
+    """returns answer as 0 or a number other than 0 representative of whether resources are enough or not"""
     answer = 0
     ingredients = MENU[user_want]['ingredients']
     for ingredient in ingredients:
@@ -43,6 +44,8 @@ def check_resources(resources):
     return answer      
 
 def process_coins():
+    """Returns the total calculated from coins inserted"""
+    print("Please insert coins!!")
     quaters = int(input("How many quarters: "))
     dimes = int(input("How many dimes: ")) 
     nickles = int(input("How many nickles: "))
@@ -52,6 +55,7 @@ def process_coins():
     return total   
 
 def transaction_successful(money_received, resources):
+    """Return False if the cost of coffee exceeds moeny received by the machine"""
     cost = MENU[user_want]['cost']
     if cost > money_received:
         print("Sorry that is not enough money, Money refunded!!")
@@ -61,7 +65,8 @@ def transaction_successful(money_received, resources):
         resources['money'] += cost
         return False
         
-def make_coffee(resources):
+def make_coffee():
+    """deduct the required ingredients to make coffee from the resources"""
     ingredients = MENU[user_want]['ingredients']
 
     for ingredient in ingredients:
@@ -69,7 +74,7 @@ def make_coffee(resources):
             if ingredient == resource:
                 resources[resource] -= ingredients[ingredient]
 
-    print(f"Here's your {user_want}, Enjoy!!!")
+    print(f"Here's your {user_want} ☕. Enjoy!!!")
         
 
 machine_on = True
@@ -82,10 +87,10 @@ while machine_on:
         for resource in resources:
             print(f"{resource}: {resources[resource]}")
     else:
-         if check_resources(resources) == 0:
+         if check_resources() == 0:
             money_received = process_coins()
             if transaction_successful(money_received, resources) == False:
-                make_coffee(resources)
+                make_coffee()
               
        
         
