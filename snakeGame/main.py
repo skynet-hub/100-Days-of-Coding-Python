@@ -38,14 +38,14 @@ while game_is_on:
 
    
     if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -280 or my_snake.head.ycor() > 280 or my_snake.head.ycor() < -280:
-        game_is_on = False
-        score.game_over()
+        score.reset_scoreboard()
+        my_snake.reset_snake()
 
     #detect collision with body
     for segment in my_snake.segments[1:]:
         if my_snake.head.distance(segment) < 5:
-            game_is_on = False
-            score.game_over()      
+            score.reset_scoreboard() 
+            my_snake.reset_snake()
         
 
 
