@@ -1,0 +1,39 @@
+Day 48 of 100 days of python code
+
+About Selenium:
+Well known testing an automation tool for web developers.
+It is a free tool that enables us to automate the browser.
+
+How to install Selenium webdriver?
+-Create a virtual environment python3 -m venv .venv
+-Activate the virtual environment source .venv/bin/Activate
+-Now install Selenium inside this virtevn pip install selenium
+
+More on Selenium
+To get starterd create a driver: driver = webdriver.Chrome()
+Chrome driver is not the only driver you can create an object of You can also create driver for safari, mozilla firefox etc.
+by using the .get() method you can visit a website
+
+If chrome options are not set up using add experimental options(chrome_options = webdriver.ChromeOptions, then chrome_options.add_experimental_options("detach", True) then the browser will fade after opening, be sure to configure these options and pass them into the driver object as argument.
+
+driver.close() - Closes a tab in the browser
+driver.quit() - Shuts down the entire window(Prefered method)
+
+We can search once we have opened the browser for elements or tags using selenium
+The By class is important, You can import it by writing import from selenium.webdriver.common.by import By
+We can use this by applying the dot notation, By.CLASS_NAME, BY.ID, BY.NAME and BY_CSS_SELECTOR BY.XPATH(This method right here will always work) etc
+
+The above returns selenium element, we can tap into different things using dot notation
+
+The find_elements will get using the same selectors but will find everything in screen that matches that and return it as a list
+
+To click on the screen use the method .click()
+
+Finding links by using the Link-text selector, you have to provide the test then you will get hold of it, eg  driver.find_element(By.LINK_TEXT, value=126,675)
+This link we can do all that we want with it use .click() to open it etc.
+
+To get hold of input fields normally By.NAME is used and  we can after getting hold of it make use of .send_keys to send what you want to search to the browser. 
+
+from selenium.webdriver.common.keys import keys
+
+This helps us to press the enter keyword, it basically just gives us access to all keys in the keyboard, Shift, tab etc
