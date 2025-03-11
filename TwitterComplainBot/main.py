@@ -28,7 +28,7 @@ class InternetSpeedTwitterBot:
 
         time.sleep(10)
 
-        go_btn = self.driver.find_element(By.XPATH, value='/html/body/div[3]/div[1]/div[3]/div/div/div/div[2]/div[3]/div[1]/a')  
+        go_btn = self.driver.find_element(By.XPATH, value='//*[@id="container"]/div[1]/div[3]/div/div/div/div[2]/div[3]/div[1]/a')  
         go_btn.click()  
 
         time.sleep(60)
@@ -38,8 +38,27 @@ class InternetSpeedTwitterBot:
         print(f'Up speed: {up_speed.text}')
 
     def tweet_at_provider(self) -> None:
-        pass
+        self.driver.get('https://x.com')
+
+        time.sleep(5)
+
+        sing_in_btn = self.driver.find_element(By.XPATH, value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div[1]/div/div/div[3]/a')
+        sing_in_btn.click()
+
+        time.sleep(2)
+
+        email_field = self.driver.find_element(By.XPATH, value='//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input')
+        email_field.send_keys('davidlesaomako@gmail.com', Keys.ENTER)
+
+        time.sleep(2)
+        passw_field = self.driver.find_element(By.XPATH, value='//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[4]/label/div/div[2]/div/input')
+        passw_field.send_keys('P@ssword123', Keys.ENTER)
+
+        time.sleep(3)
+
+        tweet = self.driver.find_element(By.XPATH, value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div/div/div[2]/div/div/div/div')
+        tweet.send_keys(f'down speed {self.down}, up speed: {self.up}', Keys.ENTER)
 
 bot = InternetSpeedTwitterBot()
 bot.get_internet_speed()
-# bot.tweet_at_provider()    
+bot.tweet_at_provider()    
