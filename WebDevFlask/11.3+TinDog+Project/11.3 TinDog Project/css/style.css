@@ -1,0 +1,83 @@
+#testimonial{
+  text-align: center;
+  background-color: rgb(252, 241, 241);
+  padding: 50px;
+}
+
+#testimonial img{
+  margin-top: 5px;
+  margin-bottom: 2px;
+  border-radius: 50%;
+}
+
+.title-content{
+  margin: 20px;
+}
+
+#title img{
+  margin:20px 20px 0;
+}
+
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  height: 100px;
+  border-radius: 50%;
+}
+
+.btn-outline-light {
+  color: white;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.title-content h2{
+  font-weight: 900;
+}
+
+.features{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 50px auto 30px;
+}
+
+.f-item{
+  display: flex;
+  margin: 20px 0;
+  
+}
+
+.f-item svg{
+  background-color: rgb(209, 204, 204);
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
