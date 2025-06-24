@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting Data Flask</title>
+</head>
+<body>
+    <h1>It works!</h1>
+    <form method="post" action="{{ url_for('receive_data') }}">
+        <label for="name"> Name
+            <input type="text" placeholder="Name" name="username">
+        </label>
+        <label for="pass">Password
+            <input type="password" name="password" placeholder="Password">
+        </label>
+
+        <button type="submit">Ok</button>
+    </form>
+</body>
+</html>
