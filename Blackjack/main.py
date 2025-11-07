@@ -87,7 +87,7 @@ def blackjack():
 
 
     another_round = input("Do you want to play a game of blackjack? 'yes' or 'no': ").lower()
-    while another_round == 'yes':
+    while another_round == True:
         os.system('clear')
         blackjack()
 
