@@ -1,5 +1,9 @@
 import random 
 
+RED = "\u001B[31m"
+GREEN = "\u001B[32m"
+RESET = "\u001B[0m"
+
 from arts import logo, stages
 
 from words import word_list
@@ -34,10 +38,11 @@ while not end_game:
         print("Incorrect, you lose a life")
         if lives == 0:
             print(f"You have {lives} lives remaining, Game over!!")
+            print(f"{RED}The correct word was {chosen_word}")
             end_game = True
 
     if "_" not in display:
-        print("You have successfully guesse all the letters in the word, You win!!!!") 
+        print(f"{GREEN}You have successfully guesse all the letters in the word, You win!!!!") 
         end_game = True               
 
     print(stages[lives])
